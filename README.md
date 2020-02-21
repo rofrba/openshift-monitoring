@@ -1,1 +1,1 @@
-# openshift-metrics
+# openshift-monitoring
