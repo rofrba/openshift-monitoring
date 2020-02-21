@@ -7,3 +7,11 @@
 `oc new-app -i openshift/prometheus:v3.11.170-5  --name prometheus-services -n new-project-monitoring `
 
 `oc expose svc/prometheus-services`
+
+Editar prometheus.yml
+
+`oc create configmap  prometheus.yml  --from-file=prometheus.yml  -n hello-dev`
+
+`oc set volume dc/prometheus-services --add --type=configmap --configmap-name=prometheus.yml --mount-path=/etc/prometheus/prometheus.yml`
+
+
