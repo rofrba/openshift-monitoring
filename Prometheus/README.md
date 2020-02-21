@@ -1,1 +1,9 @@
-## How to install Prometheus into an Openshift Cluster
+## How to install Prometheus into an Openshift OCP
+
+`oc new-project  new-project-monitoring`
+
+`oc import-image openshift/prometheus:v3.11.170-5 --from=registry.redhat.io/openshift3/prometheus:v3.11.170-5 --confirm -n openshift`
+
+`oc new-app -i openshift/prometheus:v3.11.170-5  --name prometheus-services -n new-project-monitoring `
+
+`oc expose svc/prometheus-services`
