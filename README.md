@@ -4,8 +4,8 @@ This is a repository for implement a project who can view and monitoring metrics
 
 
 ## Steps
-* [Install Prometheus] (Prometheus/README.md)
-* Install Grafana
-* Integrate Grafana with Prometheus
-* Create a Dashboard into Grafana
-* Implement alerts 
+* [Install Prometheus](Prometheus/README.md)
+* [Install Grafana](Grafana/README.md)
+* [Integrate Grafana with Prometheus](Integration/README.md)
+* [Create a Dashboard into Grafana](Dashboards/README.md)
+* [Implement alerts](Alerts/README.md) 

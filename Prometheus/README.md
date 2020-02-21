@@ -1,0 +1,1 @@
+## How to install Prometheus into an Openshift Cluster
