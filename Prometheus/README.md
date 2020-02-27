@@ -15,7 +15,7 @@ Editar prometheus.yml
 `oc set volume dc/prometheus-services --add --type=configmap --configmap-name=prometheus.yml --mount-path=/etc/prometheus/prometheus.yml`
 
 
-[Config Maps mounts](ConfigMaps)
+## [Config Maps mounts](ConfigMaps)
 * prometheus.yml ->  /etc/prometheus
 
 ## Persistent Volume mount
