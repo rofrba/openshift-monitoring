@@ -1,0 +1,36 @@
+# key-> prometheus.yaml
+
+# value->
+
+{
+    "apiVersion": 1,
+    "datasources": [
+        {
+            "access": "proxy",
+            "basicAuth": true,
+            "basicAuthPassword": "cMY/qdTjLzD6FNBuIXoHSakDUaINtH9/yekX17s1da0Z/harjOSrQXWEN/+wePBguWfLxnG2QlerKtJOsfk48ccF9BKug4z0405Z97fNnlNy0FZ/9IwlyKzxvSjIX9OVtwCfaR+KMB2oxAVHKCK8ZKELPix/UfBBEeYs04TaxkZDWgaSD2N24IeI9yW/4HQgpqXQTrZTTUUnMe+6HJ9QlYhVtvwmlQUdPejy8jmfRe+0WxCYxnJBH6Eo4cpFnAuO9LzeJcfYvUPLW5/kKKsDsrSzwHuiweM7FviYDud3TlDtAw1t3V7lDcAUz7xjfDaIxQSV+dmNwKqBjAx0BDLW",
+            "basicAuthUser": "internal",
+            "editable": false,
+            "jsonData": {
+                "tlsSkipVerify": true
+            },
+            "name": "Prometheus",
+            "orgId": 1,
+            "type": "prometheus",
+            "url": "https://prometheus-k8s.openshift-monitoring.svc:9091" ,
+            "version": 1
+        },
+        {
+            "basicAuth": false,
+            "editable": false,
+            "jsonData": {
+                "tlsSkipVerify": true
+            },
+            "name": "Prometheus-Externo",
+            "orgId": 1,
+            "type": "prometheus",
+            "url": "http://prometheus-test-prometheus-test.apps-prod.minsal.cloud" ,
+            "version": 1
+        }
+    ]
+}
