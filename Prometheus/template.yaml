@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: prometheus
+  annotations:
+    openshift.io/display-name: Prometheus
+    iconClass: fa fa-code
+objects:
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: prometheus
+    name: prometheus
+    namespace: new-project-monitoring
+  spec:
+    replicas: 1
+    selector:
+      app: prometheus
+      deploymentconfig: prometheus
+    strategy:
+      type: Rolling
+    template:
+      metadata:
+        labels:
+          app: prometheus
+          deploymentconfig: prometheus
+      spec:
+        containers:
+        - args:
+          - '--storage.tsdb.retention=1h'
+          - '--config.file=/etc/prometheus/prometheus.yml'
+          image: docker-registry.default.svc:5000/openshift/prometheus:v3.11.170-5
+          imagePullPolicy: IfNotPresent
+          name: prometheus
+          ports:
+            - containerPort: 9090
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /prometheus
+              name: prometheus-db
+            - mountPath: /etc/prometheus
+              name: prometheus-config
+        volumes:
+          - name: prometheus-db
+            persistentVolumeClaim:
+            claimName: prometheus-persistent
+          - configMap:
+              defaultMode: 420
+              name: prometheus.yml
+            name: prometheus-config
+      type: ImageChange
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: prometheus
+    name: prometheus
+  spec:
+    ports:
+    - name: 9090-tcp
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      app: prometheus
+      deploymentconfig: prometheus
+- apiVersion: v1
+  kind: Route
+  metadata:
+    labels:
+      app: prometheus
+    name: prometheus
+  spec:
+    to:
+      kind: Service
+      name: prometheus
