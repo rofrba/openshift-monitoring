@@ -2,29 +2,21 @@
 
 ### IMPORTANT: First check if Monitoring project and Prometheus are installed. If they aren't installed, verify the [Prometheus Installation](../Prometheus)
 
-`oc import-image openshift/grafana:6.5.2 --from=grafana/grafana:6.5.2 --confirm -n openshift`
+#### Edit [grafana.ini](ConfigMaps/grafana.ini) to set credentials for admin user 
 
-`oc new-app -i openshift/grafana:6.5.2  --name grafana -n openshift-metrics `
+#### Edit [datasources.yaml](Secrets/datasources.yaml) to set the prometheus datasource. It's recommended to use the service to connect.
 
-`oc expose svc/grafana`
+#### Create the necessary resources
 
+`oc create configmap  grafana-dashboards  --from-file=dashboards.yml  -n new-project-monitoring`
 
-[Config Maps mounts](ConfigMaps)
+`oc create configmap  grafana-config  --from-file=grafana.ini  -n new-project-monitoring `
 
+`oc create -f datasources.yaml -n new-project-monitoring`
 
-oc create configmap  grafana-dashboards  --from-file=dashboards.yml  -n new-project-monitoring
+#### OPTIONAL: If you need mount particular static dashboards, use this path: /grafana-dashboard-definitions/0/dashboard-name
 
-oc create configmap  grafana-config  --from-file=grafana.ini  -n new-project-monitoring
-
-oc create secret generic grafana-datasource  --from-file=datasources.yaml  -n new-project-monitoring
-
-* grafana-datasources -> /etc/grafana/provisioning/datasources
-* grafana-dashboards ->  /etc/grafana/provisioning/dashboards
-* Particular dashboards:
-    * grafana-dashboard-nginx -> /grafana-dashboard-definitions/0/nginx
-    * grafana-dashboard-cluster -> /grafana-dashboard-definitions/0/cluster-information
-* grafana.ini -> /etc/grafana
-
+#### Create a new-app based on [template](template.yaml)
 
 `oc new-app -f template.yaml`
 
