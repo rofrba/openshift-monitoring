@@ -29,6 +29,7 @@
 
 * **Optional** Add a PV to persist metrics
 * Create a PVC, edit [pvc.yaml](pvc.yaml)
+
 ` oc create -f pvc.yaml -n test-https `
 
 
