@@ -8,12 +8,6 @@ global:
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 
-# Alertmanager configuration
-alerting:
-  alertmanagers:
-  - static_configs:
-    - targets:
-      - 172.30.168.102:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
@@ -24,16 +18,14 @@ rule_files:
 # Here it's Prometheus itself.
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: 'nginx'
-
-    # metrics_path defaults to '/metrics'
+      # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
-
+  - job_name: 'nginx'
     static_configs:
-    - targets: ['10.10.101.99:9126']
+    - targets: ['ip:port']
   - job_name: 'api-cast'
     static_configs:
-    - targets: ['apicast.sisa-prod.svc.cluster.local:9421']
+    - targets: ['service:port']
   - job_name: 'Haproxy'
     static_configs:
-    - targets: ['10.10.50.200:9101']
+    - targets: ['ip:port']
