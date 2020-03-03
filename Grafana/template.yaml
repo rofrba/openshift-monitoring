@@ -27,7 +27,7 @@ objects:
           deploymentconfig: grafana
       spec:
         containers:
-        - image: docker-registry.default.svc:5000/openshift/grafana:6.5.2
+        - image: docker-registry.default.svc:5000/openshift/grafana:v3.11
           imagePullPolicy: IfNotPresent
           name: grafana
           ports:
