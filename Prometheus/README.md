@@ -1,6 +1,6 @@
 ## Prometheus
 
-### This is an example to install Prometheus for monitoring another endpoint different to an Openshift-Monitoring project.
+### This is an example to install Prometheus to monitor another different endpoint from the Openshift-Monitoring project.
 
 * Create a new project into OCP
 
