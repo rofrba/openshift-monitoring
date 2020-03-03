@@ -1,4 +1,4 @@
-## How to install Prometheus into an Openshift OCP
+## Prometheus
 
 ### This is an example to install Prometheus for monitoring another endpoint different to an Openshift-Monitoring project.
 
