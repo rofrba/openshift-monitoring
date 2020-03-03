@@ -12,7 +12,9 @@
 
 `oc create configmap  prometheus.yml  --from-file=prometheus.yml  -n new-project-monitoring`
 
-#### Create a PVC for persist metrics. Edit [pvc.yaml](pvc.yaml)
+#### Edit [pvc.yaml](pvc.yaml)
+
+#### Create a PVC for persist metrics. 
 
 ` oc create -f pvc.yaml -n new-project-monitoring `
 
