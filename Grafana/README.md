@@ -1,5 +1,7 @@
 ## Grafana
 
+### IMPORTANT: First check if Monitoring project and Prometheus are installed. If they aren't installed, verify the [Grafana Installation](../Grafana)
+
 `oc import-image openshift/grafana:6.5.2 --from=grafana/grafana:6.5.2 --confirm -n openshift`
 
 `oc new-app -i openshift/grafana:6.5.2  --name grafana -n openshift-metrics `
