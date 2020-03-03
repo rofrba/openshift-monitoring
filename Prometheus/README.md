@@ -27,7 +27,7 @@
 
 `oc set volume dc/prometheus-services --add --type=configmap --configmap-name=prometheus.yml --mount-path=/etc/prometheus/prometheus.yml`
 
-* **Optional** Add a PV to persist metrics
+### **Optional** Add a PV to persist metrics
 * Create a PVC, edit [pvc.yaml](pvc.yaml)
 
 ` oc create -f pvc.yaml -n test-https `
