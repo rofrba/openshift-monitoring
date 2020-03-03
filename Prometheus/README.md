@@ -6,21 +6,13 @@
 
 `oc new-project  new-project-monitoring`
 
-#### Edit [prometheus.yml](ConfigMaps/prometheus.yml)
-
-#### Create a ConfigMap with prometheus.yml
-
-`oc create configmap  prometheus.yml  --from-file=prometheus.yml  -n new-project-monitoring`
-
-#### Edit [pvc.yaml](pvc.yaml)
-
-#### Create a PVC for persist metrics. 
-
-` oc create -f pvc.yaml -n new-project-monitoring `
+#### Edit [prometheus.yml](ConfigMaps/prometheus.yml) to set the endpoints connections
 
 #### Create a new-app based on [template](template.yaml)
 
 `oc new-app -f template.yaml`
+
+#### OPTIONAL: You can add PV for persist metrics. Mount the PV on path  /prometheus
 
 
 
