@@ -1,6 +1,6 @@
 ## Grafana
 
-### IMPORTANT: First check if Monitoring project and Prometheus are installed. If they aren't installed, verify the [Grafana Installation](../Prometheus)
+### IMPORTANT: First check if Monitoring project and Prometheus are installed. If they aren't installed, verify the [Prometheus Installation](../Prometheus)
 
 `oc import-image openshift/grafana:6.5.2 --from=grafana/grafana:6.5.2 --confirm -n openshift`
 
