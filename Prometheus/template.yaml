@@ -107,7 +107,7 @@ objects:
           # scheme defaults to 'http'.
         - job_name: 'nginx'
           static_configs:
-          - targets: ['10.10.101.99:9126']
+          - targets: ['ip:port']
         - job_name: 'Haproxy'
           static_configs:
-          - targets: ['10.10.50.200:9101']
+          - targets: ['ip:port']
