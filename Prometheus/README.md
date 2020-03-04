@@ -16,7 +16,7 @@
 
 `oc new-app -f template.yaml`
 
-#### OPTIONAL: You can add PV for persist metrics. Mount the PV on path  /prometheus
+#### OPTIONAL: You can add PV for persist metrics. In this case, mount the PV on path  /prometheus
 
 
 
