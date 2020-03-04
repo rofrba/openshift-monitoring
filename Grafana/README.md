@@ -9,7 +9,7 @@
 #### Edit [template.yaml](template.yaml) to set credentials for admin user in the section _ConfigMap/grafana.ini_ and edit the same template for set the prometuehs datasoruce in the section _ConfigMap/datasources.yaml (It's recommended to use the service to connect)_ 
 
 
-#### Create a new-app based on [template](template.yaml)
+#### Create a new-app based on template
 
 `oc new-app -f template.yaml`
 
