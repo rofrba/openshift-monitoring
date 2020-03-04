@@ -10,9 +10,9 @@
 
 `oc import-image openshift/prometheus:v3.11.170-5 --from=registry.redhat.io/openshift3/prometheus:v3.11.170-5 --confirm -n openshift`
 
-#### Edit [template.yaml](template.yml) to set the endpoints connections in the ConfigMap section
+#### Edit [template.yaml](template.yaml) to set the endpoints connections in the ConfigMap section
 
-#### Create a new-app based on [template](template.yaml)
+#### Create a new-app based on template
 
 `oc new-app -f template.yaml`
 
