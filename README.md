@@ -1,6 +1,7 @@
-# openshift-monitoring
+# Openshift-monitoring for external services
 
-This is a repository for implement a project who can view and monitoring metrics in a cluster or project into Openshift
+This is a repository for implement a project who can view and monitoring metrics in a service or project inside/outside Openshift cluster.
+In this case, we use Openshift 3.11
 
 
 ## Steps
